@@ -1,0 +1,21 @@
+#root {
+  width: 1400px;
+  height:800px;
+  margin: auto;
+  padding: 0;
+  text-align: center;
+  border : 2px solid red;
+  background-color: white;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: clip;
+}
+
+/* overflow:scroll */

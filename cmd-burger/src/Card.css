@@ -1,0 +1,18 @@
+.card{
+    display: grid;
+    grid-template-rows: 1fr 10fr;
+    border: 2px solid purple;
+    color:red;
+    box-sizing: border-box;
+    height : 100%;
+}
+
+.total{
+    border: 2px solid green;
+    background-color: black;
+    color: white;
+}
+
+.liste{
+    border: 2px solid rgb(15, 192, 15);
+}
