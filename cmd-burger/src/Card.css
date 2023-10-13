@@ -26,7 +26,7 @@
 
 .list{
     position: relative;
-    overflow: scroll;
+    height:100%;
 }
 
 .productlist{
@@ -34,27 +34,37 @@
     flex-direction: column;
     /* border : solid 2px green; */
     position: absolute;
-    top: 20px;
+    top: 0px;
     left: 0;
     bottom: 0;
     right: 0;
-    margin-left:15px;
+    /* margin-left:15px; */
+    padding-top: 10px;
+    padding-right: 20px;
     gap: 15px;
     color: black;
+    height: 653px;
+    overflow: scroll;
+    overflow-x: hidden;
+    width :
 }
 
 .product{
     box-shadow: -3px 3px 20px rgba(0, 0, 0, 0.3);
     background-color: white;
     align-items: center;
+    margin-left:15px;
     padding-left: 20px;
     font-size:17px;
     padding-right: 10px;
+    /* margin-right:305px; */
     display: flex;
     width: 95%;
     border-radius: 15px;
     height: 90px;
+    min-height: 90px;
     justify-content: space-between;
+    
 }
 
 .product img {
@@ -80,7 +90,7 @@ i{
 
 .hidden{
     position: absolute;
-    left:262px;
+    left:267px;
     height:90px;
     width:70px;
     font-size: 26px;

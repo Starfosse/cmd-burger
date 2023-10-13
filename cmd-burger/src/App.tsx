@@ -43,8 +43,8 @@ function App() {
     }
   else if(selectedItem){
     setItemsAdded([
+      { id: selectedItem.id, name :selectedItem.name, price: selectedItem.price, picture : selectedItem.picture, quantity : 1},
       ...itemsAdded,
-      { id: selectedItem.id, name :selectedItem.name, price: selectedItem.price, picture : selectedItem.picture, quantity : 1}
     ]);
     setAmountTotal(amountTotal + parseFloat(selectedItem.price.replace(",", "."), 10));
     setSelectedId(-1);
