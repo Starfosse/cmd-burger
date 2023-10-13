@@ -8,7 +8,7 @@ export default function Header({onClick, admin}){
         <img 
             src={logoBurger}/>
         <button onClick={() => onClick()}>
-            {admin ? (<p>Desactiver</p>) : (<p>Activer</p>)} le mode admin
+            {admin ? ("Desactiver") : ("Activer")} le mode admin
         </button>
       </div>
     )

@@ -1,13 +1,12 @@
 #root {
-  width: 1400px;
-  height:800px;
-  margin: auto;
-  padding: 0;
-  text-align: center;
-  border : 2px solid red;
-  background-color: white;
+  margin-top: 30px;
+  margin-left: 200px;
+  width: 1500px;
+  height:850px;
+  /* border : 2px solid red; */
+  background-color: rgb(237, 237, 237);
   overflow: hidden;
-  box-sizing: border-box;
+  border-radius: 20px;
 }
 
 .container{
@@ -15,7 +14,7 @@
   grid-template-columns: 1fr 3fr;
   height: 100%;
   box-sizing: border-box;
-  overflow: clip;
+  /* overflow: clip; */
 }
 
 /* overflow:scroll */

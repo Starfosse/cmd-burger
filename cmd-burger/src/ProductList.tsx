@@ -2,25 +2,28 @@ import React from "react";
 import './ProductList.css';
 // import { products } from './data';
 
-export default function ProductList({onClick, products}){
+export default function ProductList({onClick, products, admin, onClickDelete, currentItem, onClickCurrentItem}){
     const productsList = products.map(p =>
-        <li key={p.id}>
+        <li 
+            key={p.id}
+            className={`productscreen ${admin && p.id === currentItem ? "currentselected" : ""}`}
+            onClick={() => onClickCurrentItem(p.id)}
+        >
             <img 
                 src={p.picture}
                 alt={p.name}
             />
-            <p>
-                <p><b>{p.name}</b></p>
-                <div>
+                <b className="productname">{p.name}</b>
+                <div className="pricebutton">
                     <p>{p.price}</p>
                     <button onClick={() => onClick(p.id)}>Ajouter</button>
+                    {/* {admin === true && <button onClick={() => onClickDelete(p.id)}>Supprimer</button>} */}
                 </div>
-            </p>
         </li>
     );
     return(
         <div className="tast">
-            <ul>{productsList}</ul>
+            <ul className="tost">{productsList}</ul>
         </div>
     );
 }
