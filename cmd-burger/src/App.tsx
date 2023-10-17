@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useEffect} from 'react';
 import './App.css';
 import Header from './header';
 import Card from './Card';
@@ -15,10 +15,8 @@ function App() {
   const [currentItem, setCurrentItem] = useState([]);
   const [nextId, setNextId] = useState(7);
   const [amountTotal, setAmountTotal] = useState(0);
-  const [newItem, setNewItem] = useState({}
-  );
+  const [newItem, setNewItem] = useState({});
   const [choose, setChoose] = useState(false);
-
   const selectedItem = items.find(item =>
     item.id === selectedId
   );
@@ -43,74 +41,54 @@ function App() {
     }
   else if(selectedItem){
     setItemsAdded([
-      { id: selectedItem.id, name :selectedItem.name, price: selectedItem.price, picture : selectedItem.picture, quantity : 1},
+      { id: selectedItem.id, name :selectedItem.name, price: selectedItem.price, picture : selectedItem.picture, quantity : 1, stock : selectedItem.stock, pub: selectedItem.pub},
       ...itemsAdded,
     ]);
     setAmountTotal(amountTotal + parseFloat(selectedItem.price.replace(",", "."), 10));
     setSelectedId(-1);
   }
 
-  function handleClick(){
-    setAdmin(!admin);
-  }
-
-  function handleSelected(id){
-    setSelectedId(id);
-  }
-
-  function handleDelete(id){
-      setItems(items.filter(item => 
-        item.id !== id));
-  }
-
   function handleDeleteCard(id){
-    // const test = itemsAdded.filter(item => 
-    //   item.id === id);
-    //   console.log(test[0].price);
-      // console.log(test);
     itemsAdded.forEach(item => item.id === id ? setAmountTotal(amountTotal - parseFloat(item.price.replace(",", "."), 10) * item.quantity) : null)
     setItemsAdded(itemsAdded.filter(item => 
       item.id !== id));
 }
 
-  function handleCurrentItem(id){
-  setCurrentItem(id);
-}
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.stock.value);
+    const newItemUpdate = newItem;
+    if(!newItemUpdate.stock)
+      newItemUpdate.stock = true;
+    if(!newItemUpdate.pub)
+      newItemUpdate.pub = false;
+    newItemUpdate.id = nextId;
+    setNewItem(newItemUpdate);
     setItems([
     ...items,
-    { ...newItem, id: nextId }
+    { ...newItem}
     ]);
     setNextId(nextId + 1);
-    setNewItem({});
+    setNewItem({newItemUpdate});
   }
 
-  const handleSubmit2 = (e) => {
-    e.preventDefault();
-    itemToModif = items.filter(item => 
-      item.id === currentItem);
-    const oldId = itemToModif[0].id;
-    setItems(items.filter(item => 
-      item.id !== currentItem));
-    setItems([
-      ...items,
-      { ...newItem, id: oldId }
-      ]);
-      setNewItem({});
-  }
-
-  const onChange =(e) => {
-    setNewItem({ ...newItem, [e.target.name]: e.target.value });
-  }
-
+  // const handleSubmit2 = (e) => {
+  //   e.preventDefault();
+  //   itemToModif = items.filter(item => 
+  //     item.id === currentItem);
+  //   const oldId = itemToModif[0].id;
+  //   setItems(items.filter(item => 
+  //     item.id !== currentItem));
+  //   setItems([
+  //     ...items,
+  //     { ...newItem, id: oldId }
+  //     ]);
+  //     setNewItem({});
+  // }
 
   return (
     <>
         <Header 
-          onClick={() => handleClick()}
+          onClick={() => setAdmin(!admin)}
           admin={admin}
           />
         <Container>
@@ -122,20 +100,22 @@ function App() {
           amountTotal={amountTotal.toFixed(2)}
           />
           {admin && <ProductBar
-            onChange={onChange}
+            onChange={(e) => setNewItem({ ...newItem, [e.target.name]: e.target.value })}
             handleSubmit={(e) => handleSubmit(e)}
-            onChoose={() =>setChoose(!choose)}
+            onChoose={(e) => setChoose(e)}
             choose={choose}
             />}
           <ProductList
-            onClick={(id) => handleSelected(id)}
+            onClick={(id) => setSelectedId(id)}
             products={items}
             admin={admin}
-            onClickDelete={(id) => handleDelete(id)}
+            onClickDelete={(id) => setItems(items.filter(item => item.id !== id))}
             currentItem={currentItem}
-            onClickCurrentItem={(id) => handleCurrentItem(id)}
+            onClickCurrentItem={(id) => setCurrentItem(id)}
           />
+          {admin && <InfoBar/>}
         </Container>
+        
     </>
   )
 }
@@ -149,7 +129,42 @@ function Container({children})
   );
 }
 
+function InfoBar({})
+{
+  const [showDiv, setShowDiv] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    setShowDiv(true);
+
+    const interval = setInterval(() => {
+      setProgress((prevProgress) => {
+        if (prevProgress < 100) {
+          return prevProgress + 1;
+        }
+        setShowDiv(false);
+        clearInterval(interval);
+        return prevProgress;
+      });
+    }, 15);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  return (
+    <div>
+       {showDiv && <div className='infobar visible'>Mod Admin Activé
+        <div className="progress-bar">
+          <div
+            className="progress"
+            style={{ width: `${progress}%` }}
+          ></div>
+        </div>
+        </div>}
+    </div>
+  );
+}
+
 export default App
-
-
-// champs input à controler !!!

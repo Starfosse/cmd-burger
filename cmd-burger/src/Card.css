@@ -1,7 +1,7 @@
 .card{
     display: grid;
     grid-template-rows: 1fr 10fr;
-    /* border: 2px solid purple; */
+    border: 2px solid purple;
     color:red;
     box-sizing: border-box;
     height : 100%;
@@ -43,10 +43,9 @@
     padding-right: 20px;
     gap: 15px;
     color: black;
-    height: 653px;
+    height: 670px;
     overflow: scroll;
     overflow-x: hidden;
-    width :
 }
 
 .product{
@@ -64,6 +63,7 @@
     height: 90px;
     min-height: 90px;
     justify-content: space-between;
+    position: relative;
     
 }
 
@@ -103,4 +103,19 @@ i{
 
 .product:hover .hidden{
     opacity: 1;
+}
+
+.currentselected p{
+    color:white;
+}
+
+.currentselected .hidden{
+    background-color: red;
+    color: white;
+}
+
+.nouveaucard{
+    position: absolute;
+    top:-10px;
+    left: -10px;
 }

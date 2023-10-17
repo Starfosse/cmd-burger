@@ -1,14 +1,18 @@
-import React from "react";
 import './ProductList.css';
-// import { products } from './data';
+import Epuise from './assets/epuise.png';
+import Nouveau from './assets/nouveau.jpg';
 
 export default function ProductList({onClick, products, admin, onClickDelete, currentItem, onClickCurrentItem}){
     const productsList = products.map(p =>
         <li 
             key={p.id}
-            className={`productscreen ${admin && p.id === currentItem ? "currentselected" : ""}`}
+            className={`productscreen ${admin && p.id === currentItem ? "currentselected" : ""} ${p.stock === false ? "onrupture" : ""}`}
             onClick={() => onClickCurrentItem(p.id)}
         >
+            {p.pub === true && 
+             <img src={Nouveau} className='nouveau'/>}
+            {p.stock === false &&
+             <img src={Epuise} className='epuise'/>}
             <img 
                 src={p.picture}
                 alt={p.name}

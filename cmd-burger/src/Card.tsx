@@ -1,12 +1,13 @@
 import './Card.css';
-
-
+import Nouveau from './assets/nouveau.jpg';
 export default function Card({items, onClickDeleteCard, currentItem, admin, amountTotal}){
 
     const productsList = items.map(p =>
         <li key={p.id}
         className={`product ${admin && p.id === currentItem ? "currentselected" : ""}`}>
-        <div className='picture'>
+        <div>
+        {p.pub === true && 
+             <img src={Nouveau} className='nouveaucard'/>}
         <img 
                 src={p.picture}
                 alt={p.name}
@@ -14,9 +15,9 @@ export default function Card({items, onClickDeleteCard, currentItem, admin, amou
         </div>
         <div className='nameprice'>
             <i>{p.name}</i>
-                <p className='cheat'>{p.price}</p>
+            {p.stock===true ? (<p className='cheat'>{p.price}</p>) : (<p style={{color: "var(--main-bg-color)"}}>Non disponible</p>)}
         </div>
-        <p className='cheat'>x {p.quantity}</p>
+        {p.stock===true ? (<p className='cheat'>x {p.quantity}</p>) : (null)}
             <button className='hidden' onClick={() => onClickDeleteCard(p.id)}>-</button>
         </li>
     );

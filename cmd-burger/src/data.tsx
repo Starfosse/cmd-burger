@@ -11,7 +11,7 @@ export const products = [{
     name: 'Cheeseburger',
     picture: Cheeseburger,
     price: '2,00€',
-    stock: true,
+    stock: false,
     pub: false,
     quantity: 0
   }, {
@@ -19,7 +19,7 @@ export const products = [{
     name: 'DoubleCheese',
     picture: DoubleCheese,
     price: '3,51€',
-    stock: true,
+    stock: false,
     pub: false,
     quantity: 0
   }, {
@@ -28,7 +28,7 @@ export const products = [{
     picture: Frites,
     price: '2,00€',
     stock: true,
-    pub: false,
+    pub: true,
     quantity: 0
   }, {
     id: 3,
@@ -36,7 +36,7 @@ export const products = [{
     picture: FritesPetites,
     price: '1,00€',
     stock: true,
-    pub: false,
+    pub: true,
     quantity: 0
   }, {
     id: 4,
