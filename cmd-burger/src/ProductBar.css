@@ -151,3 +151,12 @@
     background-color: white;
     border:1px solid rgb(237, 237, 237);
 }
+
+.modifinfo{
+    position:absolute;
+    color: black;
+    width : 250px;
+    font-size: 16px;
+    top:200px;
+    left:400px;
+}

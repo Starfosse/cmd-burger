@@ -12,10 +12,8 @@ function App() {
   const [items, setItems] = useState(products);
   const [selectedId, setSelectedId] = useState(-1);
   const [itemsAdded, setItemsAdded] = useState([]);
-  const [currentItem, setCurrentItem] = useState([]);
-  const [nextId, setNextId] = useState(7);
+  const [currentItem, setCurrentItem] = useState(-1);
   const [amountTotal, setAmountTotal] = useState(0);
-  const [newItem, setNewItem] = useState({});
   const [choose, setChoose] = useState(false);
   const selectedItem = items.find(item =>
     item.id === selectedId
@@ -54,37 +52,22 @@ function App() {
       item.id !== id));
 }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newItemUpdate = newItem;
-    if(!newItemUpdate.stock)
-      newItemUpdate.stock = true;
-    if(!newItemUpdate.pub)
-      newItemUpdate.pub = false;
-    newItemUpdate.id = nextId;
-    setNewItem(newItemUpdate);
+  const handleFormSubmit = (formData) => {
     setItems([
-    ...items,
-    { ...newItem}
-    ]);
-    setNextId(nextId + 1);
-    setNewItem({newItemUpdate});
+          ...items,
+          { ...formData}
+          ]);
   }
 
-  // const handleSubmit2 = (e) => {
-  //   e.preventDefault();
-  //   itemToModif = items.filter(item => 
-  //     item.id === currentItem);
-  //   const oldId = itemToModif[0].id;
-  //   setItems(items.filter(item => 
-  //     item.id !== currentItem));
-  //   setItems([
-  //     ...items,
-  //     { ...newItem, id: oldId }
-  //     ]);
-  //     setNewItem({});
-  // }
-
+  const handleInputChange = (e) => {
+    const newItemsList = items.map(item => {
+        if(item.id === currentItem) {
+            return({...item, [e.target.name]: e.target.value});
+        }
+        return(item);
+    });
+    setItems(newItemsList);
+};
   return (
     <>
         <Header 
@@ -100,10 +83,12 @@ function App() {
           amountTotal={amountTotal.toFixed(2)}
           />
           {admin && <ProductBar
-            onChange={(e) => setNewItem({ ...newItem, [e.target.name]: e.target.value })}
-            handleSubmit={(e) => handleSubmit(e)}
+            onFormSubmit={(newItem) => handleFormSubmit(newItem)}
             onChoose={(e) => setChoose(e)}
             choose={choose}
+            items={items}
+            currentItem={currentItem}
+            handleInputChange={(e) => handleInputChange(e)}
             />}
           <ProductList
             onClick={(id) => setSelectedId(id)}

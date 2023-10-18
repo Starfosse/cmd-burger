@@ -34,7 +34,7 @@
 }
 
 .productscreen img {
-    width : 120px;
+    max-width : 200px;
     height : 120px;
 }
 
@@ -43,6 +43,7 @@
     justify-content: baseline;
     text-align: left;
     width:80%;
+    max-width: 80%;
     font-size: 30px;
 }
 .pricebutton{
@@ -103,7 +104,7 @@
 }
 
 .onrupture{
-    opacity: 0.3;
+    opacity: 0.4;
 }
 
 .epuise{
