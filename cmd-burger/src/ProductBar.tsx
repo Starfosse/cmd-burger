@@ -1,10 +1,10 @@
-import "./css/ProductBar.css"
+import { useState } from "react"
 import euro from "./assets/euro.jpg"
 import picture from "./assets/picture.jpg"
+import productIcon from "./assets/productIcon.jpg"
 import pub from "./assets/pub.jpg"
 import stock from "./assets/stock.jpg"
-import productIcon from "./assets/productIcon.jpg"
-import { useState } from "react"
+import "./css/ProductBar.css"
 import { product } from "./data"
 
 interface ProductBarProps {
@@ -95,16 +95,6 @@ export default function ProductBar({
     resetNewItem()
   }
 
-  // const handleInputChange = (e) => {
-  //     const newItemsList = items.map(item => {
-  //         if(item.id === currentItem) {
-  //             return({...item, [e.target.name]: e.target.value});
-  //         }
-  //         return(item);
-  //     });
-  //     setItems(newItemsList);
-  // };
-
   const customOnChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement
@@ -171,9 +161,6 @@ export default function ProductBar({
           )}
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="infos">
-              {/* <div className="preview">
-                <img src={newItem.picture} />
-              </div> */}
               <label className="name">
                 <img src={productIcon} />
                 <input
@@ -240,7 +227,6 @@ export default function ProductBar({
                   name="pub"
                   onChange={(e) => customOnChange(e)}>
                   {" "}
-                  {/* items[currentItem].pub */}
                   <option value="false">Sans pub</option>
                   <option value="true">Avec pub</option>
                 </select>

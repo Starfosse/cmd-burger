@@ -21,12 +21,10 @@
     "preview picture picture picture"
     "preview price stock pub"
     ". button button .";
-  /* background-color: red; */
   padding-top: 30px;
   height: 200px;
   width: 700px;
   margin-left: 100px;
-  /* position:relative; */
 }
 
 .infos label {
@@ -53,8 +51,6 @@
 .picture img,
 .price img {
   position: absolute;
-  /* top:5px;
-    left:5px; */
   margin-left: 5px;
   margin-top: 3px;
   height: 30px;
@@ -64,8 +60,6 @@
 .stock img,
 .pub img {
   position: absolute;
-  /* top:5px;
-    left:5px; */
   margin-left: 5px;
   margin-top: 3px;
   height: 30px;
@@ -105,12 +99,10 @@
 
 .stock {
   grid-area: stock;
-  /* background-color: blue; */
 }
 
 .pub {
   grid-area: pub;
-  /* background-color: yellow; */
 }
 
 .infos button {
@@ -128,9 +120,7 @@
   text-align: center;
   color: black;
   gap: 1px;
-  /* border-bottom: none; */
   height: 40px;
-  /* width: 300px; */
 }
 
 .buttonlist button {
