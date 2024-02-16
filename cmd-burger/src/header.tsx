@@ -1,15 +1,21 @@
-import React from "react"
-import './header.css'
-import logoBurger from './assets/logo.png'
+import logoBurger from "./assets/logo.png"
+import "./css/header.css"
 
-export default function Header({onClick, admin}){
-    return(
-      <div className="sidebar">
-        <img 
-            src={logoBurger}/>
-        <button onClick={() => onClick()}>
-            {admin ? ("Desactiver") : ("Activer")} le mode admin
-        </button>
-      </div>
-    )
+interface HeaderProps {
+  onClick: () => void
+  admin: boolean
+}
+
+export default function Header({
+  onClick,
+  admin,
+}: HeaderProps) {
+  return (
+    <div className="sidebar">
+      <img src={logoBurger} />
+      <button onClick={() => onClick()}>
+        {admin ? "Desactiver" : "Activer"} le mode admin
+      </button>
+    </div>
+  )
 }
