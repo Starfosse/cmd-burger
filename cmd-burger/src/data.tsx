@@ -1,3 +1,14 @@
+import burgerBacon from "./assets/burger-bacon-egg.png"
+import burgerPoulet from "./assets/burger-poulet.png"
+import burgerVegan from "./assets/burger-vegan.png"
+import cryspyPotatoes from "./assets/cryspy-potatoes.png"
+import fritesNewYork from "./assets/frites-new-york.png"
+import fritesPaprika from "./assets/frites-paprika.png"
+import coca from "./assets/coca.png"
+import pepsi from "./assets/pepsi.png"
+import iceTea from "./assets/ice-tea.png"
+import glaces from "./assets/glaces-artisanales.png"
+
 export type product = {
   id: number
   name: string
@@ -12,8 +23,7 @@ export const products: product[] = [
   {
     id: 0,
     name: "Burger Bacon",
-    picture:
-      "https://jbfj2hcv3mw8pv33.public.blob.vercel-storage.com/cmb-burger/burger-bacon-egg-LT8NWItoZwHMVr1XP4Rxj1m95p039A.png",
+    picture: burgerBacon,
     price: "6,00€",
     stock: true,
     pub: false,
@@ -22,8 +32,7 @@ export const products: product[] = [
   {
     id: 1,
     name: "Burger Poulet",
-    picture:
-      "https://jbfj2hcv3mw8pv33.public.blob.vercel-storage.com/cmb-burger/burger-poulet-jxGYBdPpCIGbk7lZ9Zqxo3IYjavKdM.png",
+    picture: burgerPoulet,
     price: "7,00€",
     stock: true,
     pub: false,
@@ -32,8 +41,7 @@ export const products: product[] = [
   {
     id: 2,
     name: "Burger Vegan",
-    picture:
-      "https://jbfj2hcv3mw8pv33.public.blob.vercel-storage.com/cmb-burger/burger-vegan-LsvN5g1KlcpecM6VIuFIezeh5AGcC5.png",
+    picture: burgerVegan,
     price: "5,00€",
     stock: true,
     pub: false,
@@ -42,8 +50,7 @@ export const products: product[] = [
   {
     id: 3,
     name: "Cryspy Potatoes",
-    picture:
-      "https://jbfj2hcv3mw8pv33.public.blob.vercel-storage.com/cmb-burger/cryspy-potatoes-yWRuB1YHlbcANJBO2MUufuJ3cfvqlx.png",
+    picture: cryspyPotatoes,
     price: "3,00€",
     stock: true,
     pub: false,
@@ -52,8 +59,7 @@ export const products: product[] = [
   {
     id: 4,
     name: "Frites New-York",
-    picture:
-      "https://jbfj2hcv3mw8pv33.public.blob.vercel-storage.com/cmb-burger/frites-new-york-Bc1GdxVxYujlVCsNvu0UUDAKkCeKVo.png",
+    picture: fritesNewYork,
     price: "2,50€",
     stock: true,
     pub: false,
@@ -62,8 +68,7 @@ export const products: product[] = [
   {
     id: 5,
     name: "Frites Paprika",
-    picture:
-      "https://jbfj2hcv3mw8pv33.public.blob.vercel-storage.com/cmb-burger/frites-paprika-HHkvyqhDBmFVZ0EkEgstoszaU76eGn.png",
+    picture: fritesPaprika,
     price: "2,50€",
     stock: true,
     pub: false,
@@ -72,8 +77,7 @@ export const products: product[] = [
   {
     id: 6,
     name: "Coca",
-    picture:
-      "https://jbfj2hcv3mw8pv33.public.blob.vercel-storage.com/cmb-burger/coca-um3z93YS6F6jwd1MHJdZF8Adn3ZBcU.png",
+    picture: coca,
     price: "1,50€",
     stock: true,
     pub: false,
@@ -82,8 +86,7 @@ export const products: product[] = [
   {
     id: 7,
     name: "Pepsi",
-    picture:
-      "https://jbfj2hcv3mw8pv33.public.blob.vercel-storage.com/cmb-burger/pepsi-98ZDrf7eVAKvjC4CQyNidV8c0iSeLZ.png",
+    picture: pepsi,
     price: "1,50€",
     stock: true,
     pub: false,
@@ -92,8 +95,7 @@ export const products: product[] = [
   {
     id: 8,
     name: "IceTea",
-    picture:
-      "https://jbfj2hcv3mw8pv33.public.blob.vercel-storage.com/cmb-burger/ice-tea-91i0CWOrXWfYUojW4ZLUhp0OB7ojaJ.png",
+    picture: iceTea,
     price: "1,50€",
     stock: true,
     pub: false,
@@ -102,8 +104,7 @@ export const products: product[] = [
   {
     id: 9,
     name: "Glaces",
-    picture:
-      "https://jbfj2hcv3mw8pv33.public.blob.vercel-storage.com/cmb-burger/glaces-artisanales-1EEfmm7CAAQLYtWHsei7KUgTbfiyhx.png",
+    picture: glaces,
     price: "2,00€",
     stock: true,
     pub: false,
